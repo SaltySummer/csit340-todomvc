@@ -18,7 +18,13 @@ function Todos(){
         setText('')
     }
 
-    todos.map((todo) => todo.text)
+    function handleToggle(id) {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            )
+        )
+    }
     return (
         <>
             <section className="mx-auto w-full max-w-[550px]">
@@ -45,7 +51,7 @@ function Todos(){
                                 >
                                     <input type="checkbox" 
                                     checked={todo.completed} 
-                                    readOnly 
+                                    onChange={() => handleToggle(todo.id)} 
                                     className="ml-[15px] size-[30px] shrink-0 cursor-pointer accent-[#59a193]"/>
 
                                 <span 
