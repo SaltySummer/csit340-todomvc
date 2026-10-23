@@ -43,7 +43,7 @@ function Todos(){
                             <main className="relative border-t border-[#e6e6e6]">
                                 <input id="toggle-all" type="checkbox" className="peer sr-only" />
                                 <label htmlFor="toggle-all" className="absolute -top-[66px] left-0 flex h-[65px] w-[60px] cursor-pointer items-center justify-center text-[22px] text-[#949494] peer-checked:text-[#484848]">
-                                    <span className="rotate-90">❯</span>
+                                    <span type="button" onClick={() => setTodos(todos.map((todo) => ({ ...todo, completed: !todo.completed })))} className="rotate-90">❯</span>
                                 </label>
 
                                 <ul>
@@ -64,9 +64,9 @@ function Todos(){
                                         </span> 
 
                                         <button 
-                                        type="button" 
-                                        onClick={() => handleDelete(todo.id)}
-                                        className="absolute right-[10px] hidden size-10 cursor-pointer text-[30px] text-[#949494] group-hover:block hover:text-[#c18585]">
+                                            type="button" 
+                                            onClick={() => handleDelete(todo.id)}
+                                            className="absolute right-[10px] hidden size-10 cursor-pointer text-[30px] text-[#949494] group-hover:block hover:text-[#c18585]">
                                             ×
                                         </button>
                                     </li>
